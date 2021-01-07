@@ -1,15 +1,24 @@
 
-  <h1>Lista de artículos</h1>
-  <%= link_to "Dashboard", posts_dashboard_path %>
+<section class="container my-4 pt-5">
+  <h1 class="text-center">Lista de artículos</h1>
+  <div class= "text-center">
+    <button type="button" class="btn btn-success btn-lg my-5 mx-auto"><%= link_to "Insertar nuevo artículo (Dashboard)", posts_dashboard_path %></button>
+  </div>
   <% @posts.each do |post| %>
-    <ul> 
-      <li><%= post.title %></li>
-      <li><%= post.created_at %></li>
-      <li><img src="<%= post.image_url %>"></li>
-      <li><%= post.content %></li>
-    </ul>
-    <br>
-  <%end%>
-
-
-<p>Find me in app/views/pages/index.html.erb</p>
+    <div class="card mb-3 mx-auto" style="max-width: 80% ;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="<%= post.image_url %>" class="card-img-top" alt="<% post.image_url %>">
+          </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text"><%= post.created_at %></p>
+            <p class="card-text"><%= post.content %></p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  <% end %>
+</section>
